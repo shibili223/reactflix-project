@@ -1,3 +1,6 @@
+
+// Here we use 3rd party slider
+
 import React, { useEffect, useState } from 'react'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
@@ -17,9 +20,11 @@ const Slider = () => {
                 }
             })
             setLatestMovie(data.results)
+            console.log("slider", data)
         }
         fetchData()
     }, []) //here useeffect work only once bcoz empty dependency array ([]) so this is mounting phase 
+   
 
     let splideOptions = {
         heightRatio: 0.5,
