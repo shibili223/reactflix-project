@@ -2,6 +2,7 @@ import React from 'react'
 import Wrapper from './Wrapper'
 import { Link } from 'react-router-dom'  //to set navigation
 import logo from "../assets/logo.svg"
+import SearchBox from './SearchBox'
 
 
 const Header = () => {
@@ -19,9 +20,9 @@ const Header = () => {
                 Favorites
               </Link>
             </div>
-            <div className="searchBox">
-                <input type="search" className='searchField' />
-            </div>
+
+            <SearchBox />
+          
            </div> 
         </Wrapper>
       </header>

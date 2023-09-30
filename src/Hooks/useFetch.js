@@ -22,7 +22,7 @@ export const useFetch = (url, customParams= {}) => {
         }
     }
 
-    const{page} = customParams
+    const{page, query} = customParams //here page and query these two item used to rerunder the page/application. page: when we click Next and Prev button at that time need rerundering and set a network request for new movie, query: it used in SearchBox, it also need network request. page and query used to rerendering after initial rendering.
 
     useEffect(() => {
 
@@ -35,7 +35,7 @@ export const useFetch = (url, customParams= {}) => {
 
             } catch(error){
                 setError(error.message)
-                loading(false)
+                setLoading(false)
 
             }
  
@@ -43,7 +43,7 @@ export const useFetch = (url, customParams= {}) => {
         }
 
         fetchData()   //function call /async function call
-    }, [page])
-
+    }, [page, query, url])    //dependency array these "page, query, url" ithinu changes varumbol page rerunder aavanam after initial rundering, 
+                              //page: for Next Prev button click cheyyumbol rerender/network request nadakkan, query:searchBox il search cheyyumbol network request nadakkan, url:url change aavumbol network request nadakkunnu SearchBox il search cheythu kittunna resultil oronnilum click cheyyumbol network request nadakkan
     return [data, loading, error]
 }

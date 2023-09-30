@@ -1,10 +1,27 @@
 import React from 'react'
+import Wrapper from '../Components/Wrapper'
+import { useContext } from 'react'
+import { AppContext } from '../Context/appContext'
+import MovieCard from '../Components/MovieCard'
 
 const Favorites = () => {
+
+  const {state} = useContext(AppContext)
+  console.log(state, "favState")
+
   return (
-    <div>
-      <h1>Favorite</h1>
+   <Wrapper>
+     <h2 className='sectionTitle'>Favorites Movies</h2>
+    <div className="gallery">
+      {state?.favorites?.map((movie) => {
+        return  (
+        <MovieCard key={movie.id} movie={movie} />
+        )
+
+      })}
+
     </div>
+   </Wrapper>
   )
 }
 

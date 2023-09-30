@@ -9,10 +9,11 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        <Routes>
-          <Route path="/" element={ <Home/> } />
-          <Route path="/favorites" element= { <Favorites /> } />
-          <Route path="/movie/:id" element= { <MovieInfo />} />      {/* dynamic route */}
+        {/* routing start here */}
+        <Routes> 
+          <Route path="/" element={ <Home/> } />                    {/* static route */}
+          <Route path="/favorites" element= { <Favorites /> } />     {/* static route */}
+          <Route path="/movie/:id" element= { <MovieInfo />} />      {/* dynamic route: working: we pass id here, so ithu address baril kaanikkum, evideyaano ee id use cheyyunnathu avide useParam hook vachedukkum check movieInfo.jsx */}
         </Routes>
 
       </Layout>
