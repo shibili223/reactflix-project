@@ -45,7 +45,7 @@ const Main = ({ children }) => {
   return (
     
   <main>
-    {children}
+    {children}   
   </main>
   )
 }

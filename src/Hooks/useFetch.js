@@ -14,15 +14,15 @@ export const useFetch = (url, customParams= {}) => {
         baseURL: "https://api.themoviedb.org/3/",
         url: url  ,                                      //key and value are same url so also write only; url,
         params: {
-            // api_key: "e3ef60114f3455d412ea55db83f798b2",
+            api_key: "e3ef60114f3455d412ea55db83f798b2",
             //for more security we can use api_key in this method create a .env.local file outside the src folder so this file not goto github, its a git ignor file. google how to use env in vite
-            api_key: import.meta.env.VITE_API_KEY,
+            // api_key: import.meta.env.VITE_API_KEY,
             ...customParams    //spread custom params
 
         }
     }
 
-    const{page, query} = customParams //here page and query these two item used to rerunder the page/application. page: when we click Next and Prev button at that time need rerundering and set a network request for new movie, query: it used in SearchBox, it also need network request. page and query used to rerendering after initial rendering.
+    const{page, query} = customParams //here page and query these two item used to rerunder the page/application. page: when we click Next and Prev button at that time need rerundering and set a network request for new movie page, query: it used in SearchBox, it also need network request. page and query used to rerendering after initial rendering.
 
     useEffect(() => {
 

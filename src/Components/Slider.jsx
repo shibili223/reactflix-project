@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Slider = () => {
 
@@ -22,7 +23,7 @@ const Slider = () => {
             setLatestMovie(data.results)
             console.log("slider", data)
         }
-        fetchData()
+        fetchData()       //call fetchData
     }, []) //here useeffect work only once bcoz empty dependency array ([]) so this is mounting phase 
    
 
@@ -46,14 +47,17 @@ const Slider = () => {
     <div className='movieSlider'>
       <Splide options={splideOptions}>
         {
-            latestMovie?.map(({backdrop_path, title}) => {  //we can destructure here in map
+            latestMovie?.map(({backdrop_path, title, id}) => {  //we can destructure here in map
                 return(
                     <>
-                        <SplideSlide>
-                        <img src={`https://image.tmdb.org/t/p/w1280${backdrop_path}`} alt={title}/>
-                        <div className='slideCaption'>
-                           <h2>{title}</h2>
-                        </div>
+                        <SplideSlide >
+                          <Link to={`latestMovie/${id}`}>
+                            <img src={`https://image.tmdb.org/t/p/w1280${backdrop_path}`} alt={title}/>
+                            <div className='slideCaption'>
+                              <h2>{title}</h2>
+                            </div>
+                          </Link>
+                       
 
                     </SplideSlide>
                    

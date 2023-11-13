@@ -8,7 +8,7 @@ const Layout = ({children}) => {  //layout nte childrene main component nte chil
     <>
      <Header />
      <Main>
-        {children}
+        {children}         {/* //Slider, MovieCard, Pagination  */}
      </Main>
      <Footer />
     

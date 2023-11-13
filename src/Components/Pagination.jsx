@@ -1,15 +1,26 @@
 import React from 'react'
+import { useContext } from 'react'                     //to use dispatch to work page(prev next button in home)
+import { AppContext } from '../Context/appContext'    //to use dispatch to work page(prev next button in home)
 
 const Pagination = ({page,setPage,totalPages}) => {
+  const {dispatch} = useContext(AppContext)
 
 
     const handleNextPage = () =>{
-        setPage((prev) => prev + 1)
 
+        dispatch({      // dispatch calling / invoke
+          type : "GOTO_NEXT_PAGE",     //this is a action, nammal dispatch ne call cheyyumbol argument ne object aayittanu pass cheyyunnathu ithine"action object" ennu parayunnu
+
+        })
+
+    // setPage((prev) => prev + 1)
     }
 
     const handlePrevPage = () => {
-        setPage((prev) => prev - 1)
+      dispatch({
+        type: "GOTO_PREV_PAGE",
+      })
+        // setPage((prev) => prev - 1)
     }
 
   return (
